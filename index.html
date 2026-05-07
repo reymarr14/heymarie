@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Mariè — Detalles & Manualidades</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --salmon: #FFB39C;
+  --salmon-light: #FFD4C5;
+  --salmon-deep: #D4826A;
+  --sky: #BBE4EB;
+  --sky-deep: #7BBEC8;
+  --pink: #FFE1D5;
+  --mauve: #CB8686;
+  --mauve-deep: #A36262;
+  --gold: #CD9B51;
+  --gold-deep: #A07A35;
+  --ink: #2A2220;
+  --ink-muted: #7A6E6C;
+  --ink-faint: #E8DDD8;
+  --white: #FFFCFA;
+  --cream: #FFF7F3;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(255,252,250,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1.5px solid var(--ink-faint);
+}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;letter-spacing:0.06em;color:var(--ink);}
+.nav-logo-text span{color:var(--salmon-deep);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.74rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:var(--salmon-deep);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 5rem;background:var(--white);}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--mauve);margin-bottom:1.75rem;}
+.hero-tag::before{content:'';display:block;width:1.75rem;height:1px;background:var(--salmon);}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:4.8rem;font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:0.5rem;}
+.hero-title em{font-style:italic;color:var(--salmon-deep);}
+.hero-sub-brand{font-family:'Cormorant Garamond',serif;font-size:0.9rem;letter-spacing:0.22em;color:var(--mauve);text-transform:uppercase;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--ink-faint);}
+.hero-desc{font-size:0.95rem;font-weight:300;color:var(--ink-muted);line-height:1.85;max-width:370px;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.65rem;background:var(--ink);color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.74rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:0.85rem 1.75rem;border:none;cursor:pointer;text-decoration:none;transition:background 0.25s,transform 0.2s;}
+.btn-primary:hover{background:var(--mauve-deep);transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:0.65rem;background:transparent;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:0.74rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;padding:0.85rem 1.75rem;border:1.5px solid var(--ink-faint);cursor:pointer;text-decoration:none;transition:border-color 0.2s,background 0.2s;}
+.btn-outline:hover{border-color:var(--salmon);background:var(--pink);}
+.hero-right{background:var(--pink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hero-right-deco{position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--salmon-light);opacity:0.35;}
+.hero-right-deco2{position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:var(--sky);opacity:0.3;}
+.hero-logo-display{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.5rem;padding:3rem;}
+
+/* PALETTE STRIP */
+.palette-strip{display:flex;border-top:1px solid var(--ink-faint);border-bottom:1px solid var(--ink-faint);}
+.palette-block{flex:1;height:6px;}
+
+/* SECTION LABEL */
+.section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--salmon-deep);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem;}
+.section-label::before{content:'';display:block;width:1.5rem;height:1px;background:var(--salmon);}
+
+/* CATALOGUE */
+#catalogo{background:var(--cream);padding:6rem 5rem;}
+.cat-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;line-height:1.1;}
+.cat-title em{font-style:italic;color:var(--salmon-deep);}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cat-item{background:var(--white);border:1px solid var(--ink-faint);padding:2.5rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:border-color 0.25s,transform 0.25s;cursor:default;position:relative;overflow:hidden;}
+.cat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--salmon);transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.cat-item:hover::before{transform:scaleX(1);}
+.cat-item:hover{border-color:var(--salmon-light);transform:translateY(-3px);}
+.cat-icon-wrap{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.cat-icon-wrap.c1{background:var(--pink);}
+.cat-icon-wrap.c2{background:#EAF6F8;}
+.cat-icon-wrap.c3{background:var(--pink);}
+.cat-icon-wrap.c4{background:#FDF0E8;}
+.cat-icon-wrap.c5{background:#EAF6F8;}
+.cat-icon-wrap.c6{background:#FDF5E8;}
+.cat-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;text-align:center;color:var(--ink);}
+.cat-desc{font-size:0.78rem;font-weight:300;color:var(--ink-muted);text-align:center;line-height:1.75;}
+.cat-badge{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.25rem 0.75rem;color:var(--mauve-deep);background:var(--pink);margin-top:0.25rem;}
+
+/* CONTACT */
+#contacto{padding:6rem 5rem;display:grid;grid-template-columns:5fr 6fr;gap:5rem;align-items:start;background:var(--white);}
+.contact-title{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;line-height:1.1;margin-bottom:1.25rem;}
+.contact-title em{font-style:italic;color:var(--salmon-deep);}
+.contact-text{font-size:0.9rem;font-weight:300;color:var(--ink-muted);line-height:1.85;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--ink);font-size:0.88rem;padding:0.85rem 1.1rem;border:1px solid var(--ink-faint);transition:border-color 0.2s,background 0.2s;}
+.contact-link:hover{border-color:var(--salmon);background:var(--pink);}
+.contact-link-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ci-ig{background:var(--pink);}
+.ci-mail{background:#EAF6F8;}
+.contact-link-label{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-bottom:1px;}
+.contact-link-val{font-weight:400;color:var(--ink);}
+.form-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.1rem;}
+.form-label{font-size:0.67rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-muted);}
+.form-input{background:transparent;border:none;border-bottom:1px solid var(--ink-faint);padding:0.65rem 0;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.2s;width:100%;}
+.form-input:focus{border-color:var(--salmon);}
+.form-input::placeholder{color:var(--ink-faint);}
+textarea.form-input{resize:none;height:80px;border:1px solid var(--ink-faint);padding:0.65rem;}
+textarea.form-input:focus{border-color:var(--salmon);}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--white);padding:2.5rem 5rem;display:flex;align-items:center;justify-content:space-between;}
+.footer-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.08em;}
+.footer-logo-text span{color:var(--salmon);}
+.footer-sub{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--salmon);opacity:0.7;}
+.footer-copy{font-size:0.75rem;color:rgba(255,252,250,0.4);letter-spacing:0.04em;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp 0.7s ease both;}
+.d1{animation-delay:0.1s;}.d2{animation-delay:0.25s;}.d3{animation-delay:0.4s;}.d4{animation-delay:0.55s;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{gap:1.5rem;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:6rem 2rem 3rem;}
+  .hero-title{font-size:3rem;}
+  .hero-right{min-height:380px;}
+  #catalogo{padding:4rem 1.5rem;}
+  .cat-header{flex-direction:column;align-items:flex-start;gap:1rem;}
+  .cat-header p{text-align:left;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  #contacto{padding:4rem 1.5rem;grid-template-columns:1fr;gap:3rem;}
+  footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center;}
+}
+@media(max-width:480px){
+  .cat-grid{grid-template-columns:1fr;}
+  .hero-title{font-size:2.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVEGACIÓN -->
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <path d="M18 31s-13-8.5-13-17a9 9 0 0 1 13-8.06A9 9 0 0 1 31 14c0 8.5-13 17-13 17z" fill="#FFB39C"/>
+      <path d="M10 10 Q14 6 18 14 Q20 8 26 12 M8 18 Q12 22 18 28 M14 8 Q16 18 24 16" stroke="#2A2220" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Hey <span>Mariè</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left">
+    <p class="hero-tag fu">Detalles & Manualidades</p>
+    <h1 class="hero-title fu d1">Creado<br>con <em>amor</em><br>para ti.</h1>
+    <p class="hero-sub-brand fu d2">— Detalles & Manualidades —</p>
+    <p class="hero-desc fu d3">Papelería creativa hecha a mano para que cada celebración, mensaje y detalle cuente. Desde Lima, con cariño.</p>
+    <div class="hero-btns fu d4">
+      <a href="#catalogo" class="btn-primary">
+        Ver catálogo
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contacto" class="btn-outline">Hacer un pedido</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-deco"></div>
+    <div class="hero-right-deco2"></div>
+    <div class="hero-logo-display fu d2">
+      <svg width="260" height="240" viewBox="0 0 260 240" fill="none" style="filter:drop-shadow(0 8px 24px rgba(203,134,134,0.2))">
+        <path d="M130 215 C130 215 20 150 20 80 C20 45 48 20 80 20 C100 20 118 30 130 46 C142 30 160 20 180 20 C212 20 240 45 240 80 C240 150 130 215 130 215Z" fill="#FFB39C"/>
+        <path d="M60 55 Q90 40 110 80 Q120 55 145 65 Q160 45 190 60" stroke="#2A2220" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M45 90 Q75 75 100 105 Q115 85 140 95 Q160 75 200 90" stroke="#2A2220" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M50 120 Q80 105 110 130 Q130 110 160 120 Q185 105 215 120" stroke="#2A2220" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M70 150 Q100 135 125 158 Q145 140 175 150 Q195 138 215 148" stroke="#2A2220" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M90 70 Q130 120 100 160 Q80 140 90 70Z" stroke="#2A2220" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+        <path d="M130 46 Q110 90 130 130 Q150 90 130 46Z" stroke="#2A2220" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;letter-spacing:0.12em;color:#2A2220;line-height:1;">HEY MARIÈ</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:0.72rem;letter-spacing:0.32em;color:#CB8686;text-transform:uppercase;margin-top:0.5rem;">— Detalles & Manualidades —</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANJA DE COLORES -->
+<div class="palette-strip">
+  <div class="palette-block" style="background:#FFB39C;"></div>
+  <div class="palette-block" style="background:#BBE4EB;"></div>
+  <div class="palette-block" style="background:#FFE1D5;"></div>
+  <div class="palette-block" style="background:#CB8686;"></div>
+  <div class="palette-block" style="background:#CD9B51;"></div>
+</div>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+  <div class="cat-header">
+    <div>
+      <div class="section-label">Lo que hacemos</div>
+      <h2 class="cat-title">Nuestro <em>catálogo</em></h2>
+    </div>
+    <p style="font-size:0.85rem;color:var(--ink-muted);max-width:260px;text-align:right;line-height:1.7;">Todo es personalizable. Tu idea + nuestras manos = algo único.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-item">
+      <div class="cat-icon-wrap c1">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="6" width="20" height="24" rx="1" fill="#FFE1D5" stroke="#FFB39C" stroke-width="0.8"/><rect x="8" y="3" width="20" height="24" rx="1" fill="#FFFCFA" stroke="#FFB39C" stroke-width="0.8"/><line x1="12" y1="11" x2="24" y2="11" stroke="#E8DDD8" stroke-width="0.7"/><line x1="12" y1="15" x2="24" y2="15" stroke="#E8DDD8" stroke-width="0.7"/><line x1="12" y1="19" x2="20" y2="19" stroke="#E8DDD8" stroke-width="0.7"/></svg>
+      </div>
+      <p class="cat-name">Tarjetas de invitación</p>
+      <p class="cat-desc">Para bodas, bautizos, cumpleaños y toda celebración especial.</p>
+      <span class="cat-badge">Personalizable</span>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon-wrap c2">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="10" width="24" height="16" rx="1" fill="#FFFCFA" stroke="#7BBEC8" stroke-width="0.8"/><path d="M4 10L16 19L28 10" stroke="#7BBEC8" stroke-width="0.8"/><rect x="12" y="3" width="8" height="9" rx="0.5" fill="#EAF6F8" stroke="#7BBEC8" stroke-width="0.7"/></svg>
+      </div>
+      <p class="cat-name">Sobres & sellos</p>
+      <p class="cat-desc">Wax seal, liner personalizado y papeles de primera calidad.</p>
+      <span class="cat-badge" style="background:#EAF6F8;color:#7BBEC8;">Artesanal</span>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon-wrap c3">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="8" y="4" width="18" height="24" rx="1" fill="#FFFCFA" stroke="#FFB39C" stroke-width="0.8"/><rect x="4" y="4" width="6" height="24" fill="#FFE1D5" stroke="#FFB39C" stroke-width="0.7"/><circle cx="7" cy="10" r="1.5" fill="#FFFCFA" stroke="#FFB39C" stroke-width="0.5"/><circle cx="7" cy="16" r="1.5" fill="#FFFCFA" stroke="#FFB39C" stroke-width="0.5"/><circle cx="7" cy="22" r="1.5" fill="#FFFCFA" stroke="#FFB39C" stroke-width="0.5"/></svg>
+      </div>
+      <p class="cat-name">Agendas & cuadernos</p>
+      <p class="cat-desc">Para quienes disfrutan organizarse con estilo y escribir a mano.</p>
+      <span class="cat-badge">Ed. limitada</span>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon-wrap c4">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="12" width="20" height="14" rx="1" fill="#FDF0E8" stroke="#CD9B51" stroke-width="0.8"/><path d="M12 12V9a4 4 0 0 1 8 0v3" stroke="#CD9B51" stroke-width="0.8"/><circle cx="16" cy="19" r="2" fill="#CD9B51" opacity="0.5"/></svg>
+      </div>
+      <p class="cat-name">Packaging de regalo</p>
+      <p class="cat-desc">Cajas, bolsas y etiquetas que convierten el regalo en experiencia.</p>
+      <span class="cat-badge" style="background:#FDF5E8;color:#A07A35;">Set completo</span>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon-wrap c5">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" fill="#EAF6F8" stroke="#7BBEC8" stroke-width="0.8"/><path d="M16 6 Q10 12 10 16 Q10 22 16 26 Q22 22 22 16 Q22 12 16 6Z" stroke="#7BBEC8" stroke-width="0.7" fill="none"/><line x1="6" y1="16" x2="26" y2="16" stroke="#7BBEC8" stroke-width="0.7"/></svg>
+      </div>
+      <p class="cat-name">Stickers & washi tape</p>
+      <p class="cat-desc">Colecciones temáticas para decorar y añadir magia a lo cotidiano.</p>
+      <span class="cat-badge" style="background:#EAF6F8;color:#7BBEC8;">Colección nueva</span>
+    </div>
+    <div class="cat-item">
+      <div class="cat-icon-wrap c6">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 5l2.2 6.8H25l-5.4 3.9 2 6.3L16 18l-5.6 4 2-6.3L7 11.8h6.8z" fill="#FDF5E8" stroke="#CD9B51" stroke-width="0.8"/></svg>
+      </div>
+      <p class="cat-name">Kits especiales</p>
+      <p class="cat-desc">Conjuntos curados para bodas, baby showers y ocasiones únicas.</p>
+      <span class="cat-badge" style="background:#FDF5E8;color:#A07A35;">A medida</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div>
+    <div class="section-label">Hablemos</div>
+    <h2 class="contact-title">¿Tienes algo<br><em>especial</em><br>en mente?</h2>
+    <p class="contact-text">Cuéntanos tu idea y la convertimos en algo hermoso. Respondemos en menos de 24 horas.</p>
+    <div class="contact-links">
+      <a href="https://instagram.com/heymarie.pe" target="_blank" class="contact-link">
+        <div class="contact-link-icon ci-ig">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CB8686" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="#CB8686"/></svg>
+        </div>
+        <div>
+          <span class="contact-link-label">Instagram</span>
+          <span class="contact-link-val">@heymarie.pe</span>
+        </div>
+      </a>
+      <a href="mailto:hola@heymarie.pe" class="contact-link">
+        <div class="contact-link-icon ci-mail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7BBEC8" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <span class="contact-link-label">Correo</span>
+          <span class="contact-link-val">hola@heymarie.pe</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div>
+    <div class="form-group">
+      <label class="form-label">Tu nombre</label>
+      <input class="form-input" type="text" placeholder="¿Cómo te llamas?">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Correo electrónico</label>
+      <input class="form-input" type="email" placeholder="tu@correo.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">¿Qué necesitas?</label>
+      <input class="form-input" type="text" placeholder="Ej: Invitaciones para boda, 50 unidades">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Cuéntanos más</label>
+      <textarea class="form-input" placeholder="Fecha, colores, estilo, inspiración..."></textarea>
+    </div>
+    <button class="btn-primary" onclick="alert('¡Gracias! Te contactaremos pronto 💌')" style="margin-top:0.5rem;">
+      Enviar mensaje
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:0.6rem;">
+    <svg width="28" height="28" viewBox="0 0 36 36" fill="none"><path d="M18 31s-13-8.5-13-17a9 9 0 0 1 13-8.06A9 9 0 0 1 31 14c0 8.5-13 17-13 17z" fill="#FFB39C" opacity="0.8"/></svg>
+    <div>
+      <div class="footer-logo-text">Hey <span>Mariè</span></div>
+      <div class="footer-sub">Detalles & Manualidades</div>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 · Lima, Perú · Hecho con amor ♡</p>
+  <p class="footer-copy">@heymarie.pe · hola@heymarie.pe</p>
+</footer>
+
+</body>
+</html>
